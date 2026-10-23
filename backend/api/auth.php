@@ -32,7 +32,13 @@ if ($action === 'login') {
 
     try {
         if ($driver === 'mysql') {
-            $stmt = $db->prepare("CALL sp_usuarios('LOGIN', NULL, :username, NULL, NULL, NULL, NULL, NULL, NULL)");
+            // Explicitly align both sides: existing databases may have been
+            // imported with MariaDB's UCA 14 collation while the PDO connection
+            // (and older XAMPP installs) use utf8mb4_unicode_ci.
+            $stmt = $db->prepare("SELECT id, username, password_hash, nombre_completo, email, dos_factores_activo, estado
+                FROM usuarios
+                WHERE username COLLATE utf8mb4_unicode_ci = :username COLLATE utf8mb4_unicode_ci
+                  AND estado = 'A'");
             $stmt->execute([':username' => $username]);
             $user = $stmt->fetch();
             $stmt->closeCursor();
@@ -113,7 +119,11 @@ if ($action === 'verify_2fa') {
 
     try {
         if ($driver === 'mysql') {
-            $stmt = $db->prepare("CALL sp_usuarios('VERIFY_2FA', :id, NULL, NULL, NULL, NULL, NULL, :secret, NULL)");
+            $stmt = $db->prepare("SELECT id, username, nombre_completo, email
+                FROM usuarios
+                WHERE id = :id
+                  AND dos_factores_secret COLLATE utf8mb4_unicode_ci = :secret COLLATE utf8mb4_unicode_ci
+                  AND estado = 'A'");
             $stmt->execute([':id' => $userId, ':secret' => $code]);
             $user = $stmt->fetch();
             $stmt->closeCursor();

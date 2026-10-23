@@ -2,10 +2,10 @@
 // backend/config/Database.php
 
 class Database {
-    private static $host = "127.0.0.1";
+    private static $host = "172.16.50.23";
     private static $db_name = "advisor_db";
     private static $username = "root";
-    private static $password = "";
+    private static $password = "1q2w3e4r5t.";
     private static $port = "3306";
     private static $conn = null;
     private static $driver = 'mysql';
