@@ -32,3 +32,36 @@
 [Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 Accepted
 [Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 [200]: POST /backend/api/sp_handler.php
 [Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 Closing
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60368 Accepted
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60368 [200]: GET /frontend/index.php
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60368 Closing
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60374 Accepted
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60378 Accepted
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60374 [200]: GET /frontend/assets/css/styles.css
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60374 Closing
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60378 [200]: GET /frontend/assets/js/app.js
+[Fri Oct 23 16:07:33 2026] 127.0.0.1:60378 Closing
+[Fri Oct 23 16:07:34 2026] 127.0.0.1:60380 Accepted
+[Fri Oct 23 16:07:34 2026] 127.0.0.1:60380 [200]: POST /backend/api/auth.php?action=login
+[Fri Oct 23 16:07:34 2026] 127.0.0.1:60380 Closing
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60396 Accepted
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60396 [200]: POST /backend/api/auth.php?action=verify_2fa
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60396 Closing
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60408 Accepted
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60408 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:35 2026] 127.0.0.1:60408 Closing
+[Fri Oct 23 16:07:36 2026] 127.0.0.1:55378 Accepted
+[Fri Oct 23 16:07:36 2026] 127.0.0.1:55378 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:36 2026] 127.0.0.1:55378 Closing
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55386 Accepted
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55386 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55386 Closing
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55392 Accepted
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55392 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55392 Closing
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55394 Accepted
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55394 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:38 2026] 127.0.0.1:55394 Closing
+[Fri Oct 23 16:07:39 2026] 127.0.0.1:55406 Accepted
+[Fri Oct 23 16:07:39 2026] 127.0.0.1:55406 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 16:07:39 2026] 127.0.0.1:55406 Closing

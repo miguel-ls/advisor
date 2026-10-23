@@ -2,7 +2,7 @@ import os
 from playwright.sync_api import sync_playwright
 
 def run_cuj(page):
-    page.goto("http://127.0.0.1:8000/frontend/index.html")
+    page.goto("http://127.0.0.1:8000/frontend/index.php")
     page.wait_for_timeout(1000)
 
     # 1. Login

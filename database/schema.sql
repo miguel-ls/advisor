@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     estado CHAR(1) DEFAULT 'A',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: empresas
 CREATE TABLE IF NOT EXISTS empresas (
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS empresas (
     telefono VARCHAR(20) DEFAULT '',
     estado CHAR(1) DEFAULT 'A',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: empresa_periodos (Años y Meses por Empresa)
 CREATE TABLE IF NOT EXISTS empresa_periodos (
@@ -34,11 +34,11 @@ CREATE TABLE IF NOT EXISTS empresa_periodos (
     empresa_id INT NOT NULL,
     anio INT NOT NULL,
     mes INT NOT NULL, -- 1 a 12
-    estado CHAR(1) DEFAULT 'A', -- 'A' Abierto, 'C' Cerrado
+    estado CHAR(1) DEFAULT 'A', -- 'A' Abierto, 'C' Cerrado,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_ep_empresa FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE,
     UNIQUE KEY uq_empresa_periodo (empresa_id, anio, mes)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: usuario_empresas (Relación Mantenimiento Usuario - Empresa)
 CREATE TABLE IF NOT EXISTS usuario_empresas (
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS usuario_empresas (
     CONSTRAINT fk_ue_usuario FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE,
     CONSTRAINT fk_ue_empresa FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE,
     UNIQUE KEY uq_usuario_empresa (usuario_id, empresa_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: modulos (Ventas, Logística, Tesorería, Contabilidad, Mantenimiento)
 CREATE TABLE IF NOT EXISTS modulos (
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS modulos (
     icono VARCHAR(50) DEFAULT 'fa-folder',
     orden INT DEFAULT 0,
     estado CHAR(1) DEFAULT 'A'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: menus (Opciones dinámicas por Módulo)
 CREATE TABLE IF NOT EXISTS menus (
@@ -70,7 +70,7 @@ CREATE TABLE IF NOT EXISTS menus (
     orden INT DEFAULT 0,
     estado CHAR(1) DEFAULT 'A',
     CONSTRAINT fk_menu_modulo FOREIGN KEY (modulo_id) REFERENCES modulos(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: usuario_permisos (Mantenimiento Usuario - Modulo - Menu)
 CREATE TABLE IF NOT EXISTS usuario_permisos (
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS usuario_permisos (
     CONSTRAINT fk_up_modulo FOREIGN KEY (modulo_id) REFERENCES modulos(id) ON DELETE CASCADE,
     CONSTRAINT fk_up_menu FOREIGN KEY (menu_id) REFERENCES menus(id) ON DELETE CASCADE,
     UNIQUE KEY uq_usuario_menu (usuario_id, modulo_id, menu_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: configuracion_framework (Personalización Framework, tema de color)
 CREATE TABLE IF NOT EXISTS configuracion_framework (
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS configuracion_framework (
     nombre_sistema VARCHAR(100) DEFAULT 'ADVISOR-ERP',
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: clientes (Mantenimiento de Clientes para los módulos)
 CREATE TABLE IF NOT EXISTS clientes (
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS clientes (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     CONSTRAINT fk_cliente_empresa FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Table: CNM_ENTIDAD (Entidad / Clientes según formato spClientes)
 CREATE TABLE IF NOT EXISTS CNM_ENTIDAD (
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS CNM_ENTIDAD (
     Ent_cEquipoUser VARCHAR(50) DEFAULT '',
     Ent_ValidaLC CHAR(1) DEFAULT '0',
     PRIMARY KEY (Emp_cCodigo, Ten_cTipoEntidad, Ent_cCodEntidad)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Initial Seed Data
 -- 1. Default Admin & Users
