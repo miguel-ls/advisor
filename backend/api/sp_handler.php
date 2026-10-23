@@ -139,6 +139,32 @@ $spMap = [
             'p_tipo_doc' => $request['tipo_doc'] ?? 'RUC',
             'p_estado' => $request['estado'] ?? 'A'
         ]
+    ],
+    'spClientes' => [
+        'params' => [
+            'p_Accion', 'p_Emp_cCodigo', 'p_Ent_cCodEntidad', 'p_Ten_cTipoEntidad',
+            'p_Ent_cPersona', 'p_Ent_cDireccion', 'p_Ent_nRuc', 'p_Ent_cRepresentante',
+            'p_Ent_cTipoDoc', 'p_Ent_cFlagPersona', 'p_Ent_cEstadoEntidad', 'p_Ent_cEstado',
+            'p_Ent_cDeleted', 'p_Ent_cUserCrea', 'p_Ent_cUserModifica', 'p_Ent_ValidaLC'
+        ],
+        'values' => [
+            'p_Accion' => $accion,
+            'p_Emp_cCodigo' => $request['Emp_cCodigo'] ?? $request['emp_codigo'] ?? '001',
+            'p_Ent_cCodEntidad' => $request['Ent_cCodEntidad'] ?? $request['cod_entidad'] ?? '',
+            'p_Ten_cTipoEntidad' => $request['Ten_cTipoEntidad'] ?? $request['tipo_entidad'] ?? 'C',
+            'p_Ent_cPersona' => $request['Ent_cPersona'] ?? $request['persona'] ?? '',
+            'p_Ent_cDireccion' => $request['Ent_cDireccion'] ?? $request['direccion'] ?? '',
+            'p_Ent_nRuc' => $request['Ent_nRuc'] ?? $request['ruc'] ?? '',
+            'p_Ent_cRepresentante' => $request['Ent_cRepresentante'] ?? $request['representante'] ?? '',
+            'p_Ent_cTipoDoc' => $request['Ent_cTipoDoc'] ?? $request['tipo_doc'] ?? 'RUC',
+            'p_Ent_cFlagPersona' => $request['Ent_cFlagPersona'] ?? $request['flag_persona'] ?? 'J',
+            'p_Ent_cEstadoEntidad' => $request['Ent_cEstadoEntidad'] ?? '1',
+            'p_Ent_cEstado' => $request['Ent_cEstado'] ?? 'A',
+            'p_Ent_cDeleted' => $request['Ent_cDeleted'] ?? '',
+            'p_Ent_cUserCrea' => $request['Ent_cUserCrea'] ?? ($userClaims['username'] ?? 'admin'),
+            'p_Ent_cUserModifica' => $request['Ent_cUserModifica'] ?? ($userClaims['username'] ?? 'admin'),
+            'p_Ent_ValidaLC' => $request['Ent_ValidaLC'] ?? '0'
+        ]
     ]
 ];
 
@@ -381,6 +407,32 @@ function runSqliteProcedureFallback($db, $sp, $v) {
             $stmt = $db->prepare("DELETE FROM clientes WHERE id=?");
             $stmt->execute([$v['p_id']]);
             $results = [["id" => $v['p_id']]];
+        }
+    } elseif ($sp === 'spClientes') {
+        if ($accion === 'INSERTAR') {
+            $stmt = $db->prepare("INSERT INTO CNM_ENTIDAD (Emp_cCodigo, Ent_cCodEntidad, Ten_cTipoEntidad, Ent_cPersona, Ent_cDireccion, Ent_nRuc, Ent_cRepresentante, Ent_cTipoDoc, Ent_cFlagPersona, Ent_cEstadoEntidad, Ent_cEstado, Ent_cDeleted, Ent_cUserCrea, Ent_ValidaLC) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, '1', 'A', ?, ?, ?)");
+            $stmt->execute([$v['p_Emp_cCodigo'], $v['p_Ent_cCodEntidad'], $v['p_Ten_cTipoEntidad'], $v['p_Ent_cPersona'], $v['p_Ent_cDireccion'], $v['p_Ent_nRuc'], $v['p_Ent_cRepresentante'], $v['p_Ent_cTipoDoc'], $v['p_Ent_cFlagPersona'], $v['p_Ent_cDeleted'], $v['p_Ent_cUserCrea'], $v['p_Ent_ValidaLC']]);
+            $results = [["cod_entidad" => $v['p_Ent_cCodEntidad']]];
+        } elseif ($accion === 'VALIDALC') {
+            $stmt = $db->prepare("SELECT COALESCE(Ent_ValidaLC, '0') AS Ent_ValidaLC FROM CNM_ENTIDAD WHERE Emp_cCodigo=? AND Ten_cTipoEntidad=? AND Ent_cCodEntidad=?");
+            $stmt->execute([$v['p_Emp_cCodigo'], $v['p_Ten_cTipoEntidad'], $v['p_Ent_cCodEntidad']]);
+            $results = $stmt->fetchAll();
+        } elseif ($accion === 'EDITAR') {
+            $stmt = $db->prepare("UPDATE CNM_ENTIDAD SET Ent_cPersona=?, Ent_cDireccion=?, Ent_nRuc=?, Ent_cRepresentante=?, Ent_cTipoDoc=?, Ent_cFlagPersona=?, Ent_cEstadoEntidad='1', Ent_cEstado='A', Ent_cDeleted=?, Ent_cUserModifica=?, Ent_ValidaLC=? WHERE Emp_cCodigo=? AND Ten_cTipoEntidad=? AND Ent_cCodEntidad=?");
+            $stmt->execute([$v['p_Ent_cPersona'], $v['p_Ent_cDireccion'], $v['p_Ent_nRuc'], $v['p_Ent_cRepresentante'], $v['p_Ent_cTipoDoc'], $v['p_Ent_cFlagPersona'], $v['p_Ent_cDeleted'], $v['p_Ent_cUserModifica'], $v['p_Ent_ValidaLC'], $v['p_Emp_cCodigo'], $v['p_Ten_cTipoEntidad'], $v['p_Ent_cCodEntidad']]);
+            $results = [["cod_entidad" => $v['p_Ent_cCodEntidad']]];
+        } elseif ($accion === 'ELIMINAR') {
+            $stmt = $db->prepare("DELETE FROM CNM_ENTIDAD WHERE Emp_cCodigo=? AND Ten_cTipoEntidad=? AND Ent_cCodEntidad=?");
+            $stmt->execute([$v['p_Emp_cCodigo'], $v['p_Ten_cTipoEntidad'], $v['p_Ent_cCodEntidad']]);
+            $results = [["cod_entidad" => $v['p_Ent_cCodEntidad']]];
+        } elseif ($accion === 'BUSCARREGISTRO') {
+            $stmt = $db->prepare("SELECT * FROM CNM_ENTIDAD WHERE Emp_cCodigo=? AND Ten_cTipoEntidad=? AND Ent_cCodEntidad=?");
+            $stmt->execute([$v['p_Emp_cCodigo'], $v['p_Ten_cTipoEntidad'], $v['p_Ent_cCodEntidad']]);
+            $results = $stmt->fetchAll();
+        } elseif ($accion === 'BUSCARTODOS') {
+            $stmt = $db->prepare("SELECT Ent_cCodEntidad, Ent_cPersona FROM CNM_ENTIDAD WHERE Emp_cCodigo=? AND Ten_cTipoEntidad=?");
+            $stmt->execute([$v['p_Emp_cCodigo'], $v['p_Ten_cTipoEntidad']]);
+            $results = $stmt->fetchAll();
         }
     }
 

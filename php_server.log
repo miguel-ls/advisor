@@ -1,127 +1,34 @@
-[Fri Oct 23 04:43:59 2026] PHP 8.3.6 Development Server (http://127.0.0.1:8000) started
-[Fri Oct 23 04:44:05 2026] 127.0.0.1:57252 Accepted
-[Fri Oct 23 04:44:05 2026] 127.0.0.1:57252 [200]: GET /frontend/index.html
-[Fri Oct 23 04:44:05 2026] 127.0.0.1:57252 Closing
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37200 Accepted
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37200 [500]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37200 Closing
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37212 Accepted
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37212 [400]: POST /backend/api/auth.php?action=verify_2fa
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37212 Closing
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37220 Accepted
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37220 [401]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:44:22 2026] 127.0.0.1:37220 Closing
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38570 Accepted
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38570 [200]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38570 Closing
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38576 Accepted
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38576 [200]: POST /backend/api/auth.php?action=verify_2fa
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38576 Closing
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38584 Accepted
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38584 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38584 Closing
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38598 Accepted
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38598 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:44:41 2026] 127.0.0.1:38598 Closing
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49464 Accepted
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49464 [200]: GET /frontend/index.html
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49464 Closing
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49466 Accepted
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49476 Accepted
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49466 [200]: GET /frontend/assets/css/styles.css
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49476 [200]: GET /frontend/assets/js/app.js
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49466 Closing
-[Fri Oct 23 04:45:25 2026] 127.0.0.1:49476 Closing
-[Fri Oct 23 04:45:27 2026] 127.0.0.1:49486 Accepted
-[Fri Oct 23 04:45:28 2026] 127.0.0.1:49486 [200]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:45:28 2026] 127.0.0.1:49486 Closing
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33276 Accepted
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33276 [200]: GET /frontend/index.html
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33276 Closing
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33286 Accepted
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33298 Accepted
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33286 [200]: GET /frontend/assets/css/styles.css
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33298 [200]: GET /frontend/assets/js/app.js
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33286 Closing
-[Fri Oct 23 04:45:46 2026] 127.0.0.1:33298 Closing
-[Fri Oct 23 04:45:47 2026] 127.0.0.1:33308 Accepted
-[Fri Oct 23 04:45:47 2026] 127.0.0.1:33308 [200]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:45:47 2026] 127.0.0.1:33308 Closing
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35686 Accepted
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35686 [200]: GET /frontend/index.html
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35686 Closing
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35690 Accepted
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35692 Accepted
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35690 [200]: GET /frontend/assets/css/styles.css
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35690 Closing
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35692 [200]: GET /frontend/assets/js/app.js
-[Fri Oct 23 04:46:38 2026] 127.0.0.1:35692 Closing
-[Fri Oct 23 04:46:39 2026] 127.0.0.1:35706 Accepted
-[Fri Oct 23 04:46:39 2026] 127.0.0.1:35706 [200]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:46:39 2026] 127.0.0.1:35706 Closing
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35712 Accepted
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35712 [200]: POST /backend/api/auth.php?action=verify_2fa
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35712 Closing
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35720 Accepted
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35720 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:40 2026] 127.0.0.1:35720 Closing
-[Fri Oct 23 04:46:41 2026] 127.0.0.1:35736 Accepted
-[Fri Oct 23 04:46:41 2026] 127.0.0.1:35736 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:41 2026] 127.0.0.1:35736 Closing
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35748 Accepted
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35748 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35748 Closing
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35752 Accepted
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35752 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35752 Closing
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35764 Accepted
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35764 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:42 2026] 127.0.0.1:35764 Closing
-[Fri Oct 23 04:46:44 2026] 127.0.0.1:43050 Accepted
-[Fri Oct 23 04:46:44 2026] 127.0.0.1:43050 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:46:44 2026] 127.0.0.1:43050 Closing
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59118 Accepted
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59118 [200]: GET /frontend/index.html
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59118 Closing
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59134 Accepted
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59148 Accepted
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59134 [200]: GET /frontend/assets/css/styles.css
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59148 [200]: GET /frontend/assets/js/app.js
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59134 Closing
-[Fri Oct 23 04:47:56 2026] 127.0.0.1:59148 Closing
-[Fri Oct 23 04:47:58 2026] 127.0.0.1:59154 Accepted
-[Fri Oct 23 04:47:58 2026] 127.0.0.1:59154 [401]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:47:58 2026] 127.0.0.1:59154 Closing
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54602 Accepted
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54602 [200]: GET /frontend/index.html
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54602 Closing
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54616 Accepted
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54628 Accepted
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54616 [200]: GET /frontend/assets/css/styles.css
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54628 [200]: GET /frontend/assets/js/app.js
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54616 Closing
-[Fri Oct 23 04:49:27 2026] 127.0.0.1:54628 Closing
-[Fri Oct 23 04:49:28 2026] 127.0.0.1:54640 Accepted
-[Fri Oct 23 04:49:28 2026] 127.0.0.1:54640 [200]: POST /backend/api/auth.php?action=login
-[Fri Oct 23 04:49:28 2026] 127.0.0.1:54640 Closing
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54650 Accepted
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54650 [200]: POST /backend/api/auth.php?action=verify_2fa
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54650 Closing
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54662 Accepted
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54662 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:29 2026] 127.0.0.1:54662 Closing
-[Fri Oct 23 04:49:30 2026] 127.0.0.1:54676 Accepted
-[Fri Oct 23 04:49:30 2026] 127.0.0.1:54676 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:30 2026] 127.0.0.1:54676 Closing
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54682 Accepted
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54682 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54682 Closing
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54688 Accepted
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54688 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54688 Closing
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54696 Accepted
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54696 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:31 2026] 127.0.0.1:54696 Closing
-[Fri Oct 23 04:49:33 2026] 127.0.0.1:54704 Accepted
-[Fri Oct 23 04:49:33 2026] 127.0.0.1:54704 [200]: POST /backend/api/sp_handler.php
-[Fri Oct 23 04:49:33 2026] 127.0.0.1:54704 Closing
+[Fri Oct 23 15:35:00 2026] PHP 8.3.6 Development Server (http://127.0.0.1:8000) started
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53956 Accepted
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53956 [200]: GET /frontend/index.html
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53956 Closing
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53962 Accepted
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53964 Accepted
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53962 [200]: GET /frontend/assets/css/styles.css
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53964 [200]: GET /frontend/assets/js/app.js
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53962 Closing
+[Fri Oct 23 15:35:19 2026] 127.0.0.1:53964 Closing
+[Fri Oct 23 15:35:21 2026] 127.0.0.1:53978 Accepted
+[Fri Oct 23 15:35:21 2026] 127.0.0.1:53978 [200]: POST /backend/api/auth.php?action=login
+[Fri Oct 23 15:35:21 2026] 127.0.0.1:53978 Closing
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53994 Accepted
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53994 [200]: POST /backend/api/auth.php?action=verify_2fa
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53994 Closing
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53998 Accepted
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53998 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:22 2026] 127.0.0.1:53998 Closing
+[Fri Oct 23 15:35:23 2026] 127.0.0.1:54006 Accepted
+[Fri Oct 23 15:35:24 2026] 127.0.0.1:54006 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:24 2026] 127.0.0.1:54006 Closing
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54012 Accepted
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54012 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54012 Closing
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54018 Accepted
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54018 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54018 Closing
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54032 Accepted
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54032 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:25 2026] 127.0.0.1:54032 Closing
+[Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 Accepted
+[Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 [200]: POST /backend/api/sp_handler.php
+[Fri Oct 23 15:35:26 2026] 127.0.0.1:54042 Closing
