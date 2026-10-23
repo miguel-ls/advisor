@@ -454,4 +454,86 @@ BEGIN
     END IF;
 END$$
 
+-- ---------------------------------------------------------------------
+-- 10. SP: spClientes (Mantenimiento de Entidad / Clientes según ejemplo)
+-- ---------------------------------------------------------------------
+DROP PROCEDURE IF EXISTS spClientes$$
+CREATE PROCEDURE spClientes(
+    IN p_Accion VARCHAR(20),
+    IN p_Emp_cCodigo CHAR(3),
+    IN p_Ent_cCodEntidad VARCHAR(20),
+    IN p_Ten_cTipoEntidad CHAR(1),
+    IN p_Ent_cPersona VARCHAR(120),
+    IN p_Ent_cDireccion VARCHAR(120),
+    IN p_Ent_nRuc VARCHAR(15),
+    IN p_Ent_cRepresentante VARCHAR(80),
+    IN p_Ent_cTipoDoc CHAR(3),
+    IN p_Ent_cFlagPersona CHAR(1),
+    IN p_Ent_cEstadoEntidad CHAR(1),
+    IN p_Ent_cEstado CHAR(1),
+    IN p_Ent_cDeleted CHAR(1),
+    IN p_Ent_cUserCrea VARCHAR(20),
+    IN p_Ent_cUserModifica VARCHAR(20),
+    IN p_Ent_ValidaLC CHAR(1)
+)
+BEGIN
+    IF p_Accion = 'INSERTAR' THEN
+        INSERT INTO CNM_ENTIDAD (
+            Emp_cCodigo, Ent_cCodEntidad, Ten_cTipoEntidad, Ent_cPersona,
+            Ent_cDireccion, Ent_nRuc, Ent_cRepresentante, Ent_cTipoDoc,
+            Ent_cFlagPersona, Ent_cEstadoEntidad, Ent_cEstado, Ent_cDeleted,
+            Ent_cUserCrea, Ent_dFechaCrea, Ent_cEquipoUser, Ent_ValidaLC
+        ) VALUES (
+            p_Emp_cCodigo, p_Ent_cCodEntidad, p_Ten_cTipoEntidad, p_Ent_cPersona,
+            p_Ent_cDireccion, p_Ent_nRuc, p_Ent_cRepresentante, p_Ent_cTipoDoc,
+            p_Ent_cFlagPersona, '1', 'A', p_Ent_cDeleted,
+            p_Ent_cUserCrea, NOW(), USER(), p_Ent_ValidaLC
+        );
+
+    ELSEIF p_Accion = 'VALIDALC' THEN
+        SELECT COALESCE(CE.Ent_ValidaLC, '0') AS Ent_ValidaLC
+        FROM CNM_ENTIDAD CE
+        WHERE CE.Emp_cCodigo = p_Emp_cCodigo
+          AND CE.Ten_cTipoEntidad = p_Ten_cTipoEntidad
+          AND CE.Ent_cCodEntidad = p_Ent_cCodEntidad;
+
+    ELSEIF p_Accion = 'EDITAR' THEN
+        UPDATE CNM_ENTIDAD
+        SET Ent_cPersona = p_Ent_cPersona,
+            Ent_cDireccion = p_Ent_cDireccion,
+            Ent_nRuc = p_Ent_nRuc,
+            Ent_cRepresentante = p_Ent_cRepresentante,
+            Ent_cTipoDoc = p_Ent_cTipoDoc,
+            Ent_cFlagPersona = p_Ent_cFlagPersona,
+            Ent_cEstadoEntidad = '1',
+            Ent_cEstado = 'A',
+            Ent_cDeleted = p_Ent_cDeleted,
+            Ent_cUserModifica = p_Ent_cUserModifica,
+            Ent_dFechaModifica = NOW(),
+            Ent_cEquipoUser = USER(),
+            Ent_ValidaLC = p_Ent_ValidaLC
+        WHERE Emp_cCodigo = p_Emp_cCodigo
+          AND Ten_cTipoEntidad = p_Ten_cTipoEntidad
+          AND Ent_cCodEntidad = p_Ent_cCodEntidad;
+
+    ELSEIF p_Accion = 'ELIMINAR' THEN
+        DELETE FROM CNM_ENTIDAD
+        WHERE Emp_cCodigo = p_Emp_cCodigo
+          AND Ten_cTipoEntidad = p_Ten_cTipoEntidad
+          AND Ent_cCodEntidad = p_Ent_cCodEntidad;
+
+    ELSEIF p_Accion = 'BUSCARREGISTRO' THEN
+        SELECT * FROM CNM_ENTIDAD
+        WHERE Emp_cCodigo = p_Emp_cCodigo
+          AND Ten_cTipoEntidad = p_Ten_cTipoEntidad
+          AND Ent_cCodEntidad = p_Ent_cCodEntidad;
+
+    ELSEIF p_Accion = 'BUSCARTODOS' THEN
+        SELECT Ent_cCodEntidad, Ent_cPersona
+        FROM CNM_ENTIDAD
+        WHERE Emp_cCodigo = p_Emp_cCodigo
+          AND Ten_cTipoEntidad = p_Ten_cTipoEntidad;
+    END IF;
+END$$
+
 DELIMITER ;

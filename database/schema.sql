@@ -111,6 +111,29 @@ CREATE TABLE IF NOT EXISTS clientes (
     CONSTRAINT fk_cliente_empresa FOREIGN KEY (empresa_id) REFERENCES empresas(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- Table: CNM_ENTIDAD (Entidad / Clientes según formato spClientes)
+CREATE TABLE IF NOT EXISTS CNM_ENTIDAD (
+    Emp_cCodigo CHAR(3) NOT NULL,
+    Ent_cCodEntidad VARCHAR(20) NOT NULL,
+    Ten_cTipoEntidad CHAR(1) NOT NULL DEFAULT 'C',
+    Ent_cPersona VARCHAR(120) NOT NULL,
+    Ent_cDireccion VARCHAR(120) DEFAULT '',
+    Ent_nRuc VARCHAR(15) DEFAULT '',
+    Ent_cRepresentante VARCHAR(80) DEFAULT '',
+    Ent_cTipoDoc CHAR(3) DEFAULT 'RUC',
+    Ent_cFlagPersona CHAR(1) DEFAULT 'J',
+    Ent_cEstadoEntidad CHAR(1) DEFAULT '1',
+    Ent_cEstado CHAR(1) DEFAULT 'A',
+    Ent_cDeleted CHAR(1) DEFAULT '',
+    Ent_cUserCrea VARCHAR(20) DEFAULT '',
+    Ent_dFechaCrea DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Ent_cUserModifica VARCHAR(20) DEFAULT NULL,
+    Ent_dFechaModifica DATETIME DEFAULT NULL,
+    Ent_cEquipoUser VARCHAR(50) DEFAULT '',
+    Ent_ValidaLC CHAR(1) DEFAULT '0',
+    PRIMARY KEY (Emp_cCodigo, Ten_cTipoEntidad, Ent_cCodEntidad)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- Initial Seed Data
 -- 1. Default Admin & Users
 -- BCRYPT hash for password "admin123" is: $2y$10$ZmYd06EZP3voP/nktn7OOOedomX5e3Ius1jMs9Hf9yl.GhM7dMBQG

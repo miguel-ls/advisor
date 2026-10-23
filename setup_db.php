@@ -24,6 +24,28 @@ CREATE TABLE usuarios (
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE CNM_ENTIDAD (
+    Emp_cCodigo TEXT NOT NULL,
+    Ent_cCodEntidad TEXT NOT NULL,
+    Ten_cTipoEntidad TEXT DEFAULT 'C',
+    Ent_cPersona TEXT NOT NULL,
+    Ent_cDireccion TEXT DEFAULT '',
+    Ent_nRuc TEXT DEFAULT '',
+    Ent_cRepresentante TEXT DEFAULT '',
+    Ent_cTipoDoc TEXT DEFAULT 'RUC',
+    Ent_cFlagPersona TEXT DEFAULT 'J',
+    Ent_cEstadoEntidad TEXT DEFAULT '1',
+    Ent_cEstado TEXT DEFAULT 'A',
+    Ent_cDeleted TEXT DEFAULT '',
+    Ent_cUserCrea TEXT DEFAULT '',
+    Ent_dFechaCrea DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Ent_cUserModifica TEXT DEFAULT NULL,
+    Ent_dFechaModifica DATETIME DEFAULT NULL,
+    Ent_cEquipoUser TEXT DEFAULT '',
+    Ent_ValidaLC TEXT DEFAULT '0',
+    PRIMARY KEY (Emp_cCodigo, Ten_cTipoEntidad, Ent_cCodEntidad)
+);
+
 CREATE TABLE empresas (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     ruc TEXT NOT NULL UNIQUE,
